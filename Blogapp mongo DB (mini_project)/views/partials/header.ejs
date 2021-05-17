@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+    <style>
+        body{
+            margin-top: 6.0em;
+            font-family: 'Berkshire Swash', cursive;
+            background:url("https://i.pinimg.com/originals/de/c8/5d/dec85d3977cfbc1d016f9ccf2b2b9c0c.jpg");
+            background-size: 900px;
+        }
+        #shadow:hover{
+            box-shadow: 5px 10px 8px 10px;
+        }
+        #box{
+            box-shadow: 5px 10px 8px 10px;
+        }
+        i.icon{
+            font-size: 2em;
+        }
+        #aa{
+            font-family: 'Frijole', cursive;
+            font-size: 1.5em;
+        }
+        h1{
+	    font-family: 'Redressed', cursive;
+        }
+    </style>
+</head> 
+<body>
+        <div class="ui fixed inverted menu">
+            <div class="ui container">
+                <div class="header item"><i class="book icon"></i><a href="/blogs"><p id="aa">Blogs</p></a></div>
+                <a href="/" class="item">Home</a>
+                <div class="right menu">
+                    <%if(!currentUser){ %>
+                        <a href="/login" class="item">Login</a>
+                        <a href="/register" class="item">Sign Up</a> 
+                        <% }else{%>
+                        <a href="#" class="item" ><i class="user circle icon"></i><%= currentUser.username %></a>
+                        <a href="/logout" class="item">Logout</a>
+                        <% } %>
+                </div>  
+            </div>
+        </div>

@@ -1,0 +1,39 @@
+<%- include ('partials/header.ejs') -%>
+<style>
+	.content{
+    text-align: center;
+	padding: 3%;
+    background: rgb(255, 255, 255,0.8);
+	border: 2px solid rgba(0, 0, 0, 0.5);
+	border-radius: 20px;
+}
+</style>
+<div class="container">      
+	<div class="col-lg-12">
+		<div class="content">
+                <img src="<%= blog.image%>">
+                <h2><strong><%=blog.name%></strong></h2>
+                    <p><%=blog.created %></p>
+                    <p><%= blog.desc %></p>
+                    <h4><strong>Comments:</strong></h4>
+                     <div class="ui container segment">
+                     	<div >
+                     	<% blog.comments.forEach(function(blog){%>
+                     	<p><strong><%= blog.author%> : </strong><%= blog.text%></p><hr/>
+                     	<% })%>
+                     	</div>
+                     </div>
+                
+                <p>
+          		 <a href="/blogs/<%= blog._id %>/comments/new" class="btn btn-dark" >Add a Comment</a> 
+          		 <a href="/blogs/" class="btn btn-primary" >Back</a> 
+          		 <a class="btn btn-success" href="/blogs/<%=blog.id%>/edit">Edit</a>
+          		 <form action="/blogs/<%= blog.id %>?_method=DELETE" method="POST"> 
+        			<button class="btn btn-danger">Delete</button>
+    	  		 </form>
+    	  	 </p>
+		</div>
+	 </div>
+
+</div>
+<%- include ('partials/footer.ejs') -%>

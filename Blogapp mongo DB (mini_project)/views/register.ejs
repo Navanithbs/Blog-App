@@ -1,0 +1,38 @@
+<%- include ('partials/header.ejs') -%>
+<style>
+    .un,h1,button{
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgb(255, 255, 255,0.8);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.09);
+    margin-bottom: 50px;
+    margin-left: 46px;
+    text-align: center;
+    margin-bottom: 27px;
+    font-family: 'Ubuntu', sans-serif;
+    }
+    .un{
+        width: 50%;
+    }
+    form,h1{
+        text-align: center;
+    }
+</style>
+<div>
+<h1 class="display-3">Register<i class="user icon"></i></h1>
+<form action="/register" method="post">
+    <input type="text" required class="un" name="username" placeholder="username">
+    <br>
+    <input type="password" required class="un" name="password" placeholder="password">
+    <br>
+    <button type="submit" class="btn btn-lg btn-primary">SignUp!</button>
+</form>
+</div>
+<%- include ('partials/footer.ejs') -%>

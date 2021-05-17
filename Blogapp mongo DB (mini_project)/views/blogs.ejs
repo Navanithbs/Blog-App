@@ -1,0 +1,45 @@
+<%- include ('partials/header.ejs') -%>
+<style>
+	#shadow{
+	    border-radius: 20px;
+    }
+    img{
+        border: 2px solid rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+        box-shadow:  5px 10px 8px 10px;
+        height: 220px;width: 220px;
+    }
+    #ab{
+        padding: 2.0em;
+    }
+    .content{
+	padding: 1%;
+    background: rgb(255, 255, 255,0.8);
+	border: 2px solid rgba(0, 0, 0, 0.5);
+	border-radius: 20px;
+    }
+</style>
+<div class="container">
+        <div class="content" id="ab">
+            <h1><i class="book icon"></i> This is Blogs page...!!!</h1>                
+            <p><a class=" btn btn-primary" href="/blogs/new">Click here to add a new Blog to the list :)</a></p>
+        </div>
+        <br>
+    <div class="content">
+        <div>
+            <% EJSblogs.forEach(function(blog){%>
+                <div class="ui container segment" id="shadow">
+                                <img src="<%= blog.image%>"><br><br>
+                                <h3><strong><%= blog.name %></strong></h3>
+                                <p><%=blog.created %></p>
+                                <p><%=blog.desc.substring(0,250)%>......</p>
+                                <p><a href="/blogs/<%= blog._id %>" class="ui black button" > More Info. . .</a></p>
+                                <br>
+                </div>
+                
+            <% });%>
+        </div>
+    </div>
+</div>
+
+<%- include ('partials/footer.ejs') -%>

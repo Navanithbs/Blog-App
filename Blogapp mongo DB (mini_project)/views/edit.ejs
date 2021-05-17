@@ -1,0 +1,48 @@
+<%- include ('partials/header.ejs') -%>
+<style>
+	.content{
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgb(255, 255, 255,0.8);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.09);
+    margin-bottom: 50px;
+    margin-left: 46px;
+    text-align: center;
+    margin-bottom: 27px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+</style>
+<div class="container">      
+	<div class="col-lg-12">
+		<div class="content">
+            <div class="ui huge header">Edit Blog : "<%= blog.name %>"</div>
+            <!--HTML forms support only Get and post so we use method overide concept to Delete-->
+            <form class="ui form" action="/blogs/<%=blog.id%>?_method=PUT" method="POST">
+                <div class="field">
+                    <label>Name :</label>
+                    <input class="content" type="text" name="blog[name]" value="<%=blog.name%>">
+                </div>
+                <div class="field">
+                    <label>Image :</label>
+                    <input class="content" type="text" name="blog[image]" value="<%=blog.image%>">
+                </div>
+                <div class="field">
+                    <label>Description :</label>
+                    <textarea class="content" type="text" name="blog[desc]"><%=blog.desc%></textarea>
+                </div>
+                <input class="btn btn-lg btn-primary" type="submit">
+            </form>
+        </div>
+		</div>
+	 </div>
+
+</div>        
+<%- include ('partials/footer.ejs') -%>
